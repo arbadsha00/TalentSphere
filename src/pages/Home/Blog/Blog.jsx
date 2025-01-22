@@ -49,7 +49,7 @@ const Blog = () => {
     },
   ];
   return (
-    <div className="mt-10">
+    <div className="my-10">
       <Player
         autoplay
         loop
@@ -64,7 +64,7 @@ const Blog = () => {
         {blogPosts.map((post, index) => (
           <div
             key={index}
-            className="bg-white  rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+            className="bg-white max-w-[500px] mx-auto rounded-lg shadow-lg hover:shadow-xl transition duration-300 "
           >
             <img
               src={post.img}
