@@ -4,7 +4,7 @@ body {
   font-family: "Outfit", serif;
 }
 .primary-gradient {
-  background: linear-gradient(to right, #7854fd, #ff63db);
+  background: linear-gradient(to right, #ff63db, #7854fd );
 }
 .bg-banner {
   background-image: url('../src/assets/banner.png'); /* Adjust the path to your image */
