@@ -10,8 +10,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        "primary-1": "#9273FF",
-        "secondary-1": "#F47FD8",
+        "primary-1": "#7854fd",
+        "secondary-1": "#ff63db",
         "primary-2": "#1D1F67",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
