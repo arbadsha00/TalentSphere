@@ -39,11 +39,13 @@ const links = (
 );
 const Nav = () => {
   return (
-    <div className="max-w-screen-xl mx-auto  bg-base-100/75   sticky top-0 z-40 px-4 my-6 backdrop-blur">
+    <div className="max-w-screen-xl mx-auto  bg-base-100/75   sticky top-0 z-40  my-6 backdrop-blur rounded-full">
       <div className="p-2 border-2 rounded-full  flex items-center justify-between">
         <div className="flex items-center gap-2">
           <img src={logo} width={50} height={50} alt="" />
-          <h4 className="text-2xl hidden md:flex font-bold text-primary-2">TalentSphere</h4>
+          <h4 className="text-2xl hidden md:flex font-bold text-primary-2">
+            TalentSphere
+          </h4>
         </div>
         <ul className="flex gap-2 md:gap-6">{links}</ul>
         <Button className="rounded-full text-lg bg-primary-2">Login </Button>

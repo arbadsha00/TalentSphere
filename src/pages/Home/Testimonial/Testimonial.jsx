@@ -1,6 +1,6 @@
 import HomeTitle from "../HomeTitle/HomeTitle";
 import { Player } from "@lottiefiles/react-lottie-player";
-import reviewAnim from "../../../assets/review.json";
+import reviewAnim from "../../../assets/review2.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
