@@ -1,7 +1,6 @@
-import React from "react";
 import HomeTitle from "../HomeTitle/HomeTitle";
 import serviceAnim from "../../../assets/service.json";
-import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 import {
   FaUserCog,
   FaChartLine,
@@ -50,7 +49,7 @@ const Service = () => {
     },
   ];
   return (
-    <div>
+    <div className="mt-10">
       <Player
         autoplay
         loop
