@@ -24,16 +24,23 @@ const Nav = () => {
           Home
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? " text-primary-1 text-base font-semibold " : "text-base"
-          }
-          to="/dashboard"
-        >
-          Dashboard
-        </NavLink>
-      </li> */}
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? " text-primary-1 text-base font-semibold "
+                  : "text-base"
+              }
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
+
       <li>
         <NavLink
           className={({ isActive }) =>
