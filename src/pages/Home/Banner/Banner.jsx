@@ -4,9 +4,9 @@ import React from "react";
 const Banner = () => {
   return (
     <div className="my-6 bg-banner px-6 py-16 text-center space-y-6 rounded-3xl">
-      <h1 className="text-2xl md:text-4xl font-semibold text-primary-2 ">
+      <h1 className="text-2xl md:text-4xl font-bold text-primary-2 ">
         Empowering Teams Through <br />
-        <span className="primary-gradient bg-clip-text text-transparent font-bold">
+        <span className="primary-gradient bg-clip-text text-transparent">
           Efficient Employee Management
         </span>
       </h1>

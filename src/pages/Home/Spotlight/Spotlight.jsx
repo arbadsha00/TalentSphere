@@ -1,4 +1,3 @@
-
 import HomeTitle from "../HomeTitle/HomeTitle";
 import { Player } from "@lottiefiles/react-lottie-player";
 import starAnim from "../../../assets/star.json";
