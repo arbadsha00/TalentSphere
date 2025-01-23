@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const redirectTo =
-    location.state?.from === "/login" ? "/home" : location.state?.from || "/";
+    location.state?.from === "/login" ? "/" : location.state?.from || "/";
   const { loading, signIn, setLoading, googleSignIn } = useContext(AuthContext);
 
   const handleLogin = (e) => {
@@ -59,7 +59,7 @@ const Login = () => {
         designation: "Sales Manager",
       };
       console.log(userInfo);
-      navigate(location?.state ? location.state : "/");
+      navigate(redirectTo, { replace: true });
       toast.success("Registration Successful");
     } catch (err) {
       const errorMessage = err.message;
