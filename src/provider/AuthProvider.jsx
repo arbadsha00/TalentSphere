@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -8,13 +9,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-import AuthContext from "./AuthContext";
-import { GoogleAuthProvider } from "firebase/auth";
-import auth from "../firebase/firebase.config";
-import { toast } from "react-toastify";
 
+import { GoogleAuthProvider } from "firebase/auth";
+
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import auth from "@/firebase/firebase.config";
+import AuthContext from "./AuthContext";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
