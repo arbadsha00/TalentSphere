@@ -6,7 +6,10 @@ import ContactUs from "@/pages/ContactUs/ContactUs";
 import Login from "@/pages/Login/Login";
 import Register from "@/pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "@/pages/Dashboard/Dashboard";
+
+import DashboardLayout from "@/layouts/DashboardLayout/DashboardLayout";
+import WorkSheet from "@/pages/Dashboard/Employee/WorkSheet/WorkSheet";
+import PaymentHistory from "@/pages/Dashboard/Employee/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -30,9 +33,32 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    errorElement: <Error></Error>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path: "/dashboard",
-        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+        path: "work-sheet",
+        element: (
+          <PrivateRoute>
+            <WorkSheet></WorkSheet>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory></PaymentHistory>
+          </PrivateRoute>
+        ),
       },
     ],
   },

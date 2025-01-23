@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Dashboard = () => {
+const WorkSheet = () => {
     return (
         <div>
-            dashboard
+            WorkSheet
         </div>
     );
 };
 
-export default Dashboard;
+export default WorkSheet;
