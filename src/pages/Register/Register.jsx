@@ -96,15 +96,15 @@ const Register = () => {
       const randomSalary = Math.floor(Math.random() * 100000) + 30000;
       const randomAccount = Math.floor(Math.random() * 1000000000) + 1000000000;
       const userInfo = {
-        name: displayName, 
-        email: email, 
+        name: displayName,
+        email: email,
         photoURL: photoURL,
-        role: "Employee",
-        account: randomAccount, 
-        salary: randomSalary, 
+        role: "employee",
+        account: randomAccount,
+        salary: randomSalary,
         designation: "Sales Manager",
       };
-console.log(userInfo);
+      console.log(userInfo);
       navigate(location?.state ? location.state : "/");
       toast.success("Registration Successful");
     } catch (err) {
@@ -114,8 +114,8 @@ console.log(userInfo);
         ?.split(")")[0]
         ?.replace("auth/", "")
         .replace("-", " ");
-        toast.error(extractedMessage);
-        setLoading(false);
+      toast.error(extractedMessage);
+      setLoading(false);
     }
   };
 
