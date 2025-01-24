@@ -3,6 +3,7 @@ import Nav from "@/components/Shared/Nav/Nav";
 import Sidebar from "@/pages/Dashboard/Sidebar/Sidebar";
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 const DashboardLayout = () => {
   return (
@@ -20,6 +21,7 @@ const DashboardLayout = () => {
         </div>
       </section>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 };
