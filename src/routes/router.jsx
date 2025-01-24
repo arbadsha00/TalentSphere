@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import DashboardLayout from "@/layouts/DashboardLayout/DashboardLayout";
 import WorkSheet from "@/pages/Dashboard/Employee/WorkSheet/WorkSheet";
 import PaymentHistory from "@/pages/Dashboard/Employee/PaymentHistory/PaymentHistory";
+import EmployeeRoute from "./EmployeeRoute";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,9 @@ const router = createBrowserRouter([
         path: "work-sheet",
         element: (
           <PrivateRoute>
-            <WorkSheet></WorkSheet>
+            <EmployeeRoute>
+              <WorkSheet></WorkSheet>
+            </EmployeeRoute>
           </PrivateRoute>
         ),
       },
@@ -56,7 +59,10 @@ const router = createBrowserRouter([
         path: "payment-history",
         element: (
           <PrivateRoute>
-            <PaymentHistory></PaymentHistory>
+            <EmployeeRoute>
+              {" "}
+              <PaymentHistory></PaymentHistory>
+            </EmployeeRoute>
           </PrivateRoute>
         ),
       },
