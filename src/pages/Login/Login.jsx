@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { saveUser } from "@/api/utils";
+import axios from "axios";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -58,9 +60,12 @@ const Login = () => {
         salary: randomSalary,
         designation: "Sales Manager",
       };
-      console.log(userInfo);
+      axios.post(
+        `${import.meta.env.VITE_API_URL}/users/${userInfo?.email}`,
+        userInfo
+      );
       navigate(redirectTo, { replace: true });
-      toast.success("Registration Successful");
+      toast.success("Login Successful");
     } catch (err) {
       const errorMessage = err.message;
       const extractedMessage = errorMessage

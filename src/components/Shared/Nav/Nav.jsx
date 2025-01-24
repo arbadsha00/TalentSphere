@@ -71,7 +71,7 @@ const Nav = () => {
                   <PopoverTrigger className="flex items-center">
                     <Avatar>
                       <AvatarImage src={user?.photoURL} alt="userPhoto" />
-                      <AvatarFallback>{user?.displayName[0]}</AvatarFallback>
+                      {user?.displayName ? user.displayName[0] : "?"}
                     </Avatar>
                   </PopoverTrigger>
                   <PopoverContent className="w-fit mr-5 mt-3">

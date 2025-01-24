@@ -19,7 +19,8 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 import AuthContext from "@/provider/AuthContext";
 import { Button } from "@/components/ui/button";
-import { imageUpload } from "@/api/utils";
+import { saveUser, imageUpload } from "@/api/utils";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     const photo = form.get("photo");
-    console.log(photo);
+  
     const photoURL = await imageUpload(photo);
 
     const role = form.get("role");
@@ -61,7 +62,6 @@ const Register = () => {
     // create user
     createUser(email, password)
       .then(() => {
-        toast.success("Registration Successful");
         update({ displayName: name, photoURL: photoURL }).then(() => {
           const userInfo = {
             name,
@@ -72,8 +72,17 @@ const Register = () => {
             salary: Number(salary),
             designation,
           };
-
-          navigate(location?.state ? location.state : "/");
+          axios
+            .post(
+              `${import.meta.env.VITE_API_URL}/users/${userInfo?.email}`,
+              userInfo
+            )
+            .then((res) => {
+              if (res.data.insertedId) {
+                toast.success("Registration Successful");
+                navigate(location?.state ? location.state : "/");
+              }
+            });
         });
       })
       .catch((err) => {
@@ -104,9 +113,13 @@ const Register = () => {
         salary: randomSalary,
         designation: "Sales Manager",
       };
-      console.log(userInfo);
-      navigate(location?.state ? location.state : "/");
+      axios.post(
+        `${import.meta.env.VITE_API_URL}/users/${userInfo?.email}`,
+        userInfo
+      );
+
       toast.success("Registration Successful");
+      navigate(location?.state ? location.state : "/");
     } catch (err) {
       const errorMessage = err.message;
       const extractedMessage = errorMessage
