@@ -36,12 +36,15 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useQuery } from "@tanstack/react-query";
+import Swal from "sweetalert2";
+import axios from "axios";
+import UpdateTaskModal from "./UpdateTaskModal/UpdateTaskModal";
+
 const WorkSheet = () => {
   const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [date, setDate] = useState(new Date());
 
-  //
   const {
     data: tasks = [],
     isLoading,
@@ -70,6 +73,44 @@ const WorkSheet = () => {
       toast.success("Task added successfully");
       refetch();
     }
+  };
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#7854fd",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/tasks/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              refetch();
+              Swal.fire({
+                title: "Deleted",
+                text: "Task deleted successfully",
+                icon: "success",
+                confirmButtonText: "Ok",
+              });
+            }
+          });
+      }
+    });
+  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState({});
+  const openModal = (task) => {
+    setSelectedTask(task);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setSelectedTask({});
+    setIsModalOpen(false);
+    refetch();
   };
   if (isLoading) {
     return (
@@ -146,10 +187,18 @@ const WorkSheet = () => {
               <TableCell>{task.hour}</TableCell>
               <TableCell>{format(new Date(task.date), "PPP")}</TableCell>
               <TableCell className="flex gap-3">
-                <Button size="icon" className="bg-primary-2">
+                <Button
+                  onClick={() => openModal(task)}
+                  size="icon"
+                  className="bg-primary-2"
+                >
                   <MdModeEdit />
                 </Button>
-                <Button size="icon" className="bg-red-500">
+                <Button
+                  onClick={() => handleDelete(task._id)}
+                  size="icon"
+                  className="bg-secondary-1"
+                >
                   <MdDelete />
                 </Button>
               </TableCell>
@@ -157,6 +206,12 @@ const WorkSheet = () => {
           ))}
         </TableBody>
       </Table>
+      <UpdateTaskModal
+        refetch={refetch}
+        closeModal={closeModal}
+        isOpen={isModalOpen}
+        oldTask={selectedTask}
+      ></UpdateTaskModal>
     </div>
   );
 };
