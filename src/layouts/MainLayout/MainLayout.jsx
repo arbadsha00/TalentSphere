@@ -5,9 +5,12 @@ import { ToastContainer } from "react-toastify";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div >
       <Nav></Nav>
+      <div className="min-h-[calc(100vh-340px)]">
       <Outlet></Outlet>
+      </div>
+     
       <Footer></Footer>
       <ToastContainer />
     </div>
