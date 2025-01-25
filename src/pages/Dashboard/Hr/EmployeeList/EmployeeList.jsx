@@ -14,8 +14,10 @@ import useAxiosSecure from "@/hooks/useAxiosSecure";
 import AuthContext from "@/provider/AuthContext";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { toast } from "react-toastify";
+import PayModal from "./PayModal/PayModal";
 
 const EmployeeList = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +39,19 @@ const EmployeeList = () => {
         toast.success("Verification Status Updated")
       refetch();
     }
-  };
+    };
+    
+    const [isModalOpen, setIsModalOpen] = useState(false);
+      const [selectedEmployee, setSelectedEmployee] = useState({});
+      const openModal = (employee) => {
+        setSelectedEmployee(employee);
+        setIsModalOpen(true);
+      };
+      const closeModal = () => {
+        setSelectedEmployee({});
+        setIsModalOpen(false);
+     
+      };
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -74,7 +88,7 @@ const EmployeeList = () => {
                 />
               </TableCell>
               <TableCell>
-                <Button disabled={!employee.isVerified}  className="text-xs bg-primary-1">Pay</Button>
+                <Button  onClick={() => openModal(employee)} disabled={!employee.isVerified}  className="text-xs bg-primary-1">Pay</Button>
               </TableCell>
               <TableCell>
                 <Button className="text-xs bg-secondary-1">Details</Button>
@@ -82,7 +96,11 @@ const EmployeeList = () => {
             </TableRow>
           ))}
         </TableBody>
-      </Table>
+          </Table>
+          <PayModal 
+        closeModal={closeModal}
+        isOpen={isModalOpen}
+        employee={selectedEmployee}></PayModal>
     </div>
   );
 };
