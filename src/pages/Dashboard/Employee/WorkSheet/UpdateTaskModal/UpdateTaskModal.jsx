@@ -56,9 +56,9 @@ const UpdateTaskModal = ({ isOpen, oldTask, closeModal, refetch }) => {
       hour: Number(hour),
       date: date.toISOString(),
     };
-    console.log(taskInfo);
-    console.log(oldTask?._id);
+
     const result = await axiosSecure.put(`/tasks/${oldTask?._id}`, taskInfo);
+    console.log("hit");
     if (result.data.modifiedCount) {
       toast.success("Task Update successfully");
       refetch();
@@ -68,7 +68,10 @@ const UpdateTaskModal = ({ isOpen, oldTask, closeModal, refetch }) => {
   return (
     <div>
       <Dialog open={isOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent
+          className="sm:max-w-[425px]"
+          aria-describedby={undefined}
+        >
           <DialogHeader>
             <DialogTitle className="text-center">Update Task</DialogTitle>
           </DialogHeader>
@@ -120,8 +123,13 @@ const UpdateTaskModal = ({ isOpen, oldTask, closeModal, refetch }) => {
                 />
               </PopoverContent>
             </Popover>
-            <Button className="bg-primary-1 w-full">Update</Button>
+            <Button type="submit" className="bg-primary-1 w-full">
+              Update
+            </Button>
           </form>
+          <Button onClick={closeModal} className="bg-primary-2 w-full">
+            Cancel
+          </Button>
         </DialogContent>
       </Dialog>
     </div>

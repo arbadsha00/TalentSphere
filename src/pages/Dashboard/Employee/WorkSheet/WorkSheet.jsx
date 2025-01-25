@@ -63,6 +63,7 @@ const WorkSheet = () => {
     const task = form.get("task");
     const hour = form.get("hour");
     const taskInfo = {
+      name : user?.displayName,
       email: user?.email,
       task,
       hour: Number(hour),
