@@ -16,6 +16,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { toast } from "react-toastify";
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
+import UpdateModal from "./UpdateModal/UpdateModal";
 const AllEmployeeList = () => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
@@ -38,6 +40,27 @@ const AllEmployeeList = () => {
       refetch();
     }
   };
+  const handleFire = async (id) => {
+    const result = await axiosSecure.patch(`/users/fire/${id}`);
+    if (result.data.modifiedCount) {
+      toast.success("Employee Fired");
+      refetch();
+    }
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState({});
+  const openModal = (employee) => {
+    setSelectedEmployee(employee);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setSelectedEmployee({});
+    setIsModalOpen(false);
+  };
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   return (
     <div>
       <h3 className="text-primary-2 bg-sec text-center mb-3 text-2xl md:text-3xl font-bold">
@@ -80,7 +103,12 @@ const AllEmployeeList = () => {
               <TableCell>{employee.designation}</TableCell>
               <TableCell>${employee.salary}</TableCell>
               <TableCell>
-                <Button className="text-xs bg-secondary-1">Update</Button>
+                <Button
+                  onClick={() => openModal(employee)}
+                  className="text-xs bg-secondary-1"
+                >
+                  Update
+                </Button>
               </TableCell>
               <TableCell>
                 <Button
@@ -92,12 +120,24 @@ const AllEmployeeList = () => {
                 </Button>
               </TableCell>
               <TableCell>
-                <Button className="text-xs bg-red-500">Fire</Button>
+                <Button
+                  onClick={() => handleFire(employee._id)}
+                  disabled={employee?.status === "fired"}
+                  className="text-xs bg-red-500"
+                >
+                  {employee?.status === "fired" ? "Fired" : "Fire"}
+                </Button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <UpdateModal
+        refetch={refetch}
+        closeModal={closeModal}
+        isOpen={isModalOpen}
+        employee={selectedEmployee}
+      ></UpdateModal>
     </div>
   );
 };
