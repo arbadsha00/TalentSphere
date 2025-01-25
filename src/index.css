@@ -4,14 +4,15 @@ body {
   font-family: "Outfit", serif;
 }
 .primary-gradient {
-  background: linear-gradient(to right, #ff63db, #7854fd );
+  background: linear-gradient(to right, #ff63db, #7854fd);
 }
 .bg-banner {
-  background-image: url('../src/assets/banner.png'); /* Adjust the path to your image */
+  background-image: url("../src/assets/banner.png"); /* Adjust the path to your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -41,7 +42,7 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 222.2 84% 4.9%;
@@ -67,7 +68,7 @@ body {
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
