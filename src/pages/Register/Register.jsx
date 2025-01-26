@@ -80,6 +80,7 @@ const Register = () => {
             .then((res) => {
               if (res.data.insertedId) {
                 toast.success("Registration Successful");
+                setLoading(false);
                 navigate(location?.state ? location.state : "/");
               }
             });
@@ -119,6 +120,7 @@ const Register = () => {
       );
 
       toast.success("Registration Successful");
+      setLoading(false);
       navigate(location?.state ? location.state : "/");
     } catch (err) {
       const errorMessage = err.message;

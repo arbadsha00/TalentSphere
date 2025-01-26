@@ -35,13 +35,11 @@ const Messages = () => {
         {messages.map((message) => (
           <Card key={message._id} className="w-full shadow-xl ">
             <CardHeader>
-                    <CardTitle className="text-base text-secondary-1">{ message.email}</CardTitle>
-              <CardDescription>
-                {message.message}
-              </CardDescription>
+              <CardTitle className="text-base text-secondary-1">
+                {message.email}
+              </CardTitle>
+              <CardDescription>{message.message}</CardDescription>
             </CardHeader>
-           
-          
           </Card>
         ))}
       </div>

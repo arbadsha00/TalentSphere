@@ -30,6 +30,7 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         toast.success("Login Successful");
+        setLoading(false);
         navigate(redirectTo, { replace: true });
       })
       .catch((err) => {
@@ -65,6 +66,7 @@ const Login = () => {
         userInfo
       );
       navigate(redirectTo, { replace: true });
+      setLoading(false);
       toast.success("Login Successful");
     } catch (err) {
       const errorMessage = err.message;

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -9,7 +8,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-
 import { GoogleAuthProvider } from "firebase/auth";
 
 import { toast } from "react-toastify";
@@ -17,6 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import auth from "@/firebase/firebase.config";
 import AuthContext from "./AuthContext";
+
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -53,18 +52,34 @@ const AuthProvider = ({ children }) => {
         const user = { email: currentUser.email };
 
         axios
-          .post("https://suggestly-server.vercel.app/jwt", user, {
+          .post(`${import.meta.env.VITE_API_URL}/jwt`, user, {
             withCredentials: true,
           })
-          .then(() => {
+          .then((res) => {
             // console.log("login token", res.data);
-            setUser(currentUser);
+            const userStatus = res.data.status;
+            console.log(res);
+            if (userStatus === "fired") {
+              toast.error("Your account has been disabled");
+              setLoading(false);
+              setUser(null);
+              logOut();
+              
+            } else {
+              setUser(currentUser);
+              setLoading(false);
+            }
+          })
+          .catch((err) => {
+            console.error("Error during JWT issuance:", err);
+            toast.error("An error occurred while verifying your account.");
+            setUser(null);
             setLoading(false);
           });
       } else {
         axios
           .post(
-            "https://suggestly-server.vercel.app/logout",
+            `${import.meta.env.VITE_API_URL}/logout`,
             {},
             {
               withCredentials: true,
