@@ -1,7 +1,7 @@
 import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-
+import { format } from "date-fns";
 import {
   Table,
   TableBody,
@@ -13,7 +13,9 @@ import {
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import AuthContext from "@/provider/AuthContext";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { useContext } from "react";
+import PaymentModal from "./PaymentModal/PaymentModal";
 const Payroll = () => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
@@ -28,6 +30,18 @@ const Payroll = () => {
       return data;
     },
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState({});
+  const openModal = (payment) => {
+    setSelectedPayment(payment);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setSelectedPayment({});
+    setIsModalOpen(false);
+  };
+
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -55,14 +69,20 @@ const Payroll = () => {
               <TableCell>${payment.salary}</TableCell>
               <TableCell>{payment.month}</TableCell>
               <TableCell>{payment.year}</TableCell>
-              <TableCell>{payment.date}</TableCell>
+              <TableCell>{payment.date !== "N/A" ? format(new Date(payment.date), "PPP") : "N/A"}</TableCell>
               <TableCell>
-                <Button className="bg-primary-1">{payment.status}</Button>
+                <Button disabled={payment.status === "paid"} onClick={() => openModal(payment)} className="bg-primary-1">{payment.status === "paid" ? "Paid" : "Pay"}</Button>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <PaymentModal
+         closeModal={closeModal}
+         isOpen={isModalOpen}
+        payment={selectedPayment}
+        refetch={refetch}
+      ></PaymentModal>
     </div>
   );
 };
