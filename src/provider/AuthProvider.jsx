@@ -58,13 +58,12 @@ const AuthProvider = ({ children }) => {
           .then((res) => {
             // console.log("login token", res.data);
             const userStatus = res.data.status;
-            console.log(res);
+            
             if (userStatus === "fired") {
               toast.error("Your account has been disabled");
               setLoading(false);
               setUser(null);
               logOut();
-              
             } else {
               setUser(currentUser);
               setLoading(false);
