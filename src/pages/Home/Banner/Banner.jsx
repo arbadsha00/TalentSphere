@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
 
+import hero from "../../../assets/hero.png";
 const Banner = () => {
   return (
-    <div className="my-6 bg-banner px-6 py-16 text-center space-y-6 rounded-3xl">
+    <div className="my-6 bg-banner px-6 pt-6 pb-16 text-center space-y-6 ">
+      <img className="mx-auto w-52  md:w-80" src={hero} alt="" />
       <h1 className="text-2xl md:text-4xl font-bold text-primary-2 ">
         Empowering Teams Through <br />
         <span className="primary-gradient bg-clip-text text-transparent">

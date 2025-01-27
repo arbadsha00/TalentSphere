@@ -57,7 +57,7 @@ const PayModal = ({ isOpen, employee, closeModal }) => {
           aria-describedby={undefined}
         >
           <DialogHeader>
-            <DialogTitle className="text-center">Update Task</DialogTitle>
+            <DialogTitle className="text-center">Payment</DialogTitle>
             <h3 className="text-center text-green-500 font-semibold text-2xl">
               Salary : ${employee?.salary}
             </h3>

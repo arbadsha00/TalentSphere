@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import logo from "../../../assets/Logo-01.png";
+import { RiHome2Line } from "react-icons/ri";
+import { IoGridOutline } from "react-icons/io5";
 import {
   Popover,
   PopoverContent,
@@ -9,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Link, NavLink } from "react-router-dom";
 import AuthContext from "@/provider/AuthContext";
 import { TbFidgetSpinner } from "react-icons/tb";
+import { IoMailOutline } from "react-icons/io5";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const Nav = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -17,11 +20,14 @@ const Nav = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? " text-primary-1 text-base font-semibold " : "text-base"
+            isActive
+              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+              : "text-base flex items-center gap-1"
           }
           to="/"
         >
-          Home
+          <RiHome2Line className="text-2xl md:text-base " />{" "}
+          <span className="hidden md:flex">Home</span>
         </NavLink>
       </li>
       {user && (
@@ -30,12 +36,13 @@ const Nav = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? " text-primary-1 text-base font-semibold "
-                  : "text-base"
+                  ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+                  : "text-base flex items-center gap-1"
               }
               to="/dashboard"
             >
-              Dashboard
+              <IoGridOutline className="text-2xl md:text-base " />{" "}
+              <span className="hidden md:flex">Dashboard</span>
             </NavLink>
           </li>
         </>
@@ -44,11 +51,14 @@ const Nav = () => {
       <li>
         <NavLink
           className={({ isActive }) =>
-            isActive ? " text-primary-1 text-base font-semibold " : "text-base"
+            isActive
+              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+              : "text-base flex items-center gap-1"
           }
           to="/contact"
         >
-          Contact Us
+          <IoMailOutline className="text-2xl md:text-base " />
+          <span className="hidden md:flex">Contact Us</span>
         </NavLink>
       </li>
     </>
@@ -56,13 +66,13 @@ const Nav = () => {
   return (
     <div className="max-w-screen-xl mx-auto  bg-base-100/75   sticky top-0 z-40  my-6 backdrop-blur rounded-full">
       <div className="p-2 border-2 rounded-full  flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} width={50} height={50} alt="" />
           <h4 className="text-2xl hidden md:flex font-bold text-primary-2">
             TalentSphere
           </h4>
-        </div>
-        <ul className="flex gap-2 md:gap-6">{links}</ul>
+        </Link>
+        <ul className="flex gap-10 md:gap-6">{links}</ul>
         <div>
           {!loading ? (
             user ? (

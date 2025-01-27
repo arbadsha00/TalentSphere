@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import Payroll from "@/pages/Dashboard/Admin/Payroll/Payroll";
 import AllEmployeeList from "@/pages/Dashboard/Admin/AllEmployeeList/AllEmployeeList";
 import Messages from "@/pages/Dashboard/Admin/Messages/Messages";
+import Dashboard from "@/pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "work-sheet",
         element: (
@@ -94,7 +103,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "details",
+        path: "details/:email",
         element: (
           <PrivateRoute>
             <HrRoute>
@@ -102,6 +111,10 @@ const router = createBrowserRouter([
             </HrRoute>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `${import.meta.env.VITE_API_URL}/employee/details/${params.email}`
+          ),
       },
       {
         path: "payroll",

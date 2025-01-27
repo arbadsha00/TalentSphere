@@ -20,7 +20,7 @@ const Spotlight = () => {
     },
   ];
   return (
-    <div className="mt-10">
+    <div className="mt-10 px-4">
       <Player
         autoplay
         loop

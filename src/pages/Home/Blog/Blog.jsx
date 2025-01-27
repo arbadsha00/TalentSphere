@@ -49,7 +49,7 @@ const Blog = () => {
     },
   ];
   return (
-    <div className="my-10">
+    <div className="my-10 px-4">
       <Player
         autoplay
         loop

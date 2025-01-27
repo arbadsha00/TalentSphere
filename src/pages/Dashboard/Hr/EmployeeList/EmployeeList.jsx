@@ -18,6 +18,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { toast } from "react-toastify";
 import PayModal from "./PayModal/PayModal";
+import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
   const { user } = useContext(AuthContext);
@@ -35,23 +36,22 @@ const EmployeeList = () => {
   });
   const handleToggle = async (id) => {
     const result = await axiosSecure.patch(`/employee/${id}`);
-      if (result.data.modifiedCount) {
-        toast.success("Verification Status Updated")
+    if (result.data.modifiedCount) {
+      toast.success("Verification Status Updated");
       refetch();
     }
-    };
-    
-    const [isModalOpen, setIsModalOpen] = useState(false);
-      const [selectedEmployee, setSelectedEmployee] = useState({});
-      const openModal = (employee) => {
-        setSelectedEmployee(employee);
-        setIsModalOpen(true);
-      };
-      const closeModal = () => {
-        setSelectedEmployee({});
-        setIsModalOpen(false);
-     
-      };
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedEmployee, setSelectedEmployee] = useState({});
+  const openModal = (employee) => {
+    setSelectedEmployee(employee);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setSelectedEmployee({});
+    setIsModalOpen(false);
+  };
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
@@ -88,19 +88,28 @@ const EmployeeList = () => {
                 />
               </TableCell>
               <TableCell>
-                <Button  onClick={() => openModal(employee)} disabled={!employee.isVerified}  className="text-xs bg-primary-1">Pay</Button>
+                <Button
+                  onClick={() => openModal(employee)}
+                  disabled={!employee.isVerified}
+                  className="text-xs bg-primary-1"
+                >
+                  Pay
+                </Button>
               </TableCell>
               <TableCell>
-                <Button className="text-xs bg-secondary-1">Details</Button>
+                <Link to={`/dashboard/details/${employee.email}`}>
+                  <Button className="text-xs bg-secondary-1">Details</Button>
+                </Link>
               </TableCell>
             </TableRow>
           ))}
         </TableBody>
-          </Table>
-          <PayModal 
+      </Table>
+      <PayModal
         closeModal={closeModal}
         isOpen={isModalOpen}
-        employee={selectedEmployee}></PayModal>
+        employee={selectedEmployee}
+      ></PayModal>
     </div>
   );
 };

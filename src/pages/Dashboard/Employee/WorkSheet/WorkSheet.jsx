@@ -125,7 +125,7 @@ const WorkSheet = () => {
       <h3 className="text-primary-2 bg-sec text-center mb-3 text-2xl md:text-3xl font-bold">
         Add Task
       </h3>
-      <form onSubmit={handleAdd} className="md:flex items-center gap-2 ">
+      <form onSubmit={handleAdd} className="flex flex-col md:flex-row   md:items-center  gap-2 ">
         <Select name="task" required>
           <SelectTrigger className="">
             <SelectValue placeholder="Task" />
