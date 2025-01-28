@@ -1,22 +1,25 @@
 import HomeTitle from "../HomeTitle/HomeTitle";
 import { Player } from "@lottiefiles/react-lottie-player";
 import starAnim from "../../../assets/star.json";
+import s1 from "../../../assets/spotlight1 -01.png";
+import s2 from "../../../assets/spotlight2 -01.png";
+import s3 from "../../../assets/spotlight3 -01.png";
 const Spotlight = () => {
   const spotlight = [
     {
       name: "John Doe",
       role: "Project Manager",
-      image: "/src/assets/spotlight1 -01.png",
+      image: s1,
     },
     {
       name: "John Cena",
       role: "HR Specialist",
-      image: "/src/assets/spotlight2 -01.png",
+      image: s2,
     },
     {
       name: "Carlos Robartos",
       role: "Software Engineer",
-      image: "/src/assets/spotlight3 -01.png",
+      image: s3,
     },
   ];
   return (

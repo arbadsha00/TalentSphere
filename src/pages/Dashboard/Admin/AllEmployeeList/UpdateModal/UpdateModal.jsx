@@ -17,7 +17,7 @@ const UpdateModal = ({ isOpen, employee, closeModal, refetch }) => {
     const form = new FormData(e.currentTarget);
     const amount = form.get("amount");
       const updatedSalary = Number(amount);
-      console.log(updatedSalary);
+      // console.log(updatedSalary);
     if (updatedSalary > employee?.salary) {
       const result = await axiosSecure.patch(`/users/salary/${employee?._id}`, {
         updatedSalary,

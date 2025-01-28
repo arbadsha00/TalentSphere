@@ -55,7 +55,7 @@ const UpdateTaskModal = ({ isOpen, oldTask, closeModal, refetch }) => {
     };
 
     const result = await axiosSecure.put(`/tasks/${oldTask?._id}`, taskInfo);
-    console.log("hit");
+    // console.log("hit");
     if (result.data.modifiedCount) {
       toast.success("Task Update successfully");
       refetch();

@@ -32,9 +32,9 @@ const CheckoutForm = ({ payment, closeModal,refetch }) => {
 
     if (error) {
       setError(error.message);
-      console.log("[error]", error);
+      // console.log("[error]", error);
     } else {
-      console.log("[PaymentMethod]", paymentMethod);
+      // console.log("[PaymentMethod]", paymentMethod);
       setError("");
     }
 
@@ -49,7 +49,7 @@ const CheckoutForm = ({ payment, closeModal,refetch }) => {
         },
       });
     if (confirmError) {
-      console.log(confirmError);
+      // console.log(confirmError);
     } else {
       if (paymentIntent.status === "succeeded") {
         const paymentInfo = {

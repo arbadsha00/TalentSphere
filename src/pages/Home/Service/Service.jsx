@@ -1,5 +1,5 @@
 import HomeTitle from "../HomeTitle/HomeTitle";
-import serviceAnim from "../../../assets/service.json";
+import serviceAnim from "../../../assets/gears.json";
 import { Player } from "@lottiefiles/react-lottie-player";
 import {
   FaUserCog,

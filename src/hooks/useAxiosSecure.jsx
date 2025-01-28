@@ -24,7 +24,9 @@ const useAxiosSecure = () => {
               // redirect to the login page
               navigate("/login");
             })
-            .catch((err) => console.log(err));
+            .catch((err) => {
+              // console.log(err)
+            });
         }
         return Promise.reject(error);
       }
