@@ -72,11 +72,14 @@ const CheckoutForm = ({ payment, closeModal,refetch }) => {
   };
 
   useEffect(() => {
-    axiosSecure
+    if (payment?.salary) {
+      axiosSecure
       .post("/create-payment-intent", { bill: payment?.salary })
       .then((res) => {
         setClientSecret(res.data.clientSecret);
       });
+    }
+   
   }, [axiosSecure, payment?.salary]);
 
   return (
@@ -85,6 +88,7 @@ const CheckoutForm = ({ payment, closeModal,refetch }) => {
         options={{
           style: {
             base: {
+              fontFamily: '"Roboto", sans-serif',
               fontSize: "16px",
               color: "#424770",
               "::placeholder": {
@@ -92,6 +96,7 @@ const CheckoutForm = ({ payment, closeModal,refetch }) => {
               },
             },
             invalid: {
+              fontFamily: '"Roboto", sans-serif',
               color: "#9e2146",
             },
           },

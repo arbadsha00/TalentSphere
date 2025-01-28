@@ -28,7 +28,7 @@ const Details = () => {
       <section>
         <img
           src={data.employeeDetails.photoURL}
-          className="w-20  h-20 border-2 rounded-full mx-auto border-secondary-1 shadow-lg"
+          className="w-20  h-20  rounded-full mx-auto "
           alt=""
         />
         <h4 className="font-bold text-primary-1 text-xl text-center mt-2">
@@ -39,9 +39,12 @@ const Details = () => {
         </p>
         <div className="w-full h-28 bg-banner -mt-24"></div>
       </section>
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full mt-10">
+      <ChartContainer
+        config={chartConfig}
+        className="min-h-[200px] w-full mt-10"
+      >
         <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={formatPayment} maxBarSize={90}>
+          <BarChart data={formatPayment} maxBarSize={70}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis
               dataKey="combinedDate"

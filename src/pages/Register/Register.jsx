@@ -37,7 +37,7 @@ const Register = () => {
     const email = form.get("email");
     const password = form.get("password");
     const photo = form.get("photo");
-  
+
     const photoURL = await imageUpload(photo);
 
     const role = form.get("role");
@@ -58,7 +58,10 @@ const Register = () => {
       toast.error("Password must contain at least one lowercase letter.");
       return;
     }
-
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      toast.error("Password must contain at least one special character.");
+      return;
+    }
     // create user
     createUser(email, password)
       .then(() => {
@@ -136,6 +139,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Register | TalentSphere</title>
+      </Helmet>
       <h3 className="text-primary-2 text-2xl md:text-4xl font-bold text-center my-6">
         Register Your Account
       </h3>
@@ -208,6 +214,7 @@ const Register = () => {
           <Input
             className="bg-white/20 text-gray-500 mb-2"
             name="account"
+            min="1"
             type="number"
             id="account"
             placeholder="Bank_Account_No"
@@ -217,6 +224,7 @@ const Register = () => {
           <Input
             className="bg-white/20 text-gray-500 mb-2"
             name="salary"
+            min="1"
             type="number"
             id="salary"
             placeholder="salary"
@@ -231,7 +239,7 @@ const Register = () => {
             placeholder="example: Sales Assistant"
             required
           />
-          <Button className="w-full mb-2 bg-primary-1">
+          <Button disabled={loading} className="w-full mb-2 bg-primary-1">
             {loading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />
             ) : (

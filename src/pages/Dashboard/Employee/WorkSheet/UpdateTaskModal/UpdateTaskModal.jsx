@@ -124,7 +124,7 @@ const UpdateTaskModal = ({ isOpen, oldTask, closeModal, refetch }) => {
               Update
             </Button>
           </form>
-          <Button onClick={closeModal} className="bg-primary-2 w-full">
+          <Button onClick={closeModal} className="bg-primary-2 w-full -mt-2">
             Cancel
           </Button>
         </DialogContent>

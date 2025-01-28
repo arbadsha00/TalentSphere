@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,12 +21,14 @@ const ContactUs = () => {
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("Message Sent Successfully");
-        
         }
       });
   };
   return (
     <div className="mx-auto px-4 max-w-screen-xl ">
+       <Helmet>
+        <title>Contact Us | TalentSphere</title>
+      </Helmet>
       <h3 className="text-primary-2 text-2xl md:text-4xl font-bold text-center">
         Contact Us
       </h3>

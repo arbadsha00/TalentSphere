@@ -12,6 +12,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { saveUser } from "@/api/utils";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -81,6 +82,9 @@ const Login = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Login | TalentSphere</title>
+      </Helmet>
       <h3 className="text-primary-2 text-2xl md:text-4xl font-bold text-center my-6">
         Login To Your Account
       </h3>
@@ -120,7 +124,7 @@ const Login = () => {
             </span>
           </div>
 
-          <Button className="w-full mb-2 bg-primary-1">
+          <Button disabled={loading} className="w-full mb-2 bg-primary-1">
             {loading ? (
               <TbFidgetSpinner className="animate-spin m-auto" />
             ) : (
@@ -137,7 +141,7 @@ const Login = () => {
             Continue with <FcGoogle /> Google
           </Button>
           <p className="text-center text-sm py-2 text-gray-700">
-            Dont’t Have An Account?
+            Don’t Have An Account?
             <Link className="text-primary-1 font-bold" to="/register">
               Register
             </Link>

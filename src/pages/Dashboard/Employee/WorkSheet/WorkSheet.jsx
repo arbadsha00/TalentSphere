@@ -63,7 +63,7 @@ const WorkSheet = () => {
     const task = form.get("task");
     const hour = form.get("hour");
     const taskInfo = {
-      name : user?.displayName,
+      name: user?.displayName,
       email: user?.email,
       task,
       hour: Number(hour),
@@ -76,29 +76,10 @@ const WorkSheet = () => {
     }
   };
   const handleDelete = (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#7854fd",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axios
-          .delete(`${import.meta.env.VITE_API_URL}/tasks/${id}`)
-          .then((res) => {
-            if (res.data.deletedCount) {
-              refetch();
-              Swal.fire({
-                title: "Deleted",
-                text: "Task deleted successfully",
-                icon: "success",
-                confirmButtonText: "Ok",
-              });
-            }
-          });
+    axios.delete(`${import.meta.env.VITE_API_URL}/tasks/${id}`).then((res) => {
+      if (res.data.deletedCount) {
+        refetch();
+        toast.success("Task deleted successfully");
       }
     });
   };
@@ -125,7 +106,10 @@ const WorkSheet = () => {
       <h3 className="text-primary-2 bg-sec text-center mb-3 text-2xl md:text-3xl font-bold">
         Add Task
       </h3>
-      <form onSubmit={handleAdd} className="flex flex-col md:flex-row   md:items-center  gap-2 ">
+      <form
+        onSubmit={handleAdd}
+        className="flex flex-col md:flex-row   md:items-center  gap-2 "
+      >
         <Select name="task" required>
           <SelectTrigger className="">
             <SelectValue placeholder="Task" />
@@ -142,6 +126,7 @@ const WorkSheet = () => {
         </Select>
         <Input
           required
+          min="1"
           name="hour"
           type="number"
           className=""
