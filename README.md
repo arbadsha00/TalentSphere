@@ -94,4 +94,7 @@ A Employee Management System
 - **ShadCN/UI**: Modern components library for React.  
 - **Recharts**: Visualizing data with charts. 
 
+## Admin Login
+- **email** : admin@gmail.com
+- **password**: Admin00
 ---
