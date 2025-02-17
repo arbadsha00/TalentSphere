@@ -20,6 +20,7 @@ import Payroll from "@/pages/Dashboard/Admin/Payroll/Payroll";
 import AllEmployeeList from "@/pages/Dashboard/Admin/AllEmployeeList/AllEmployeeList";
 import Messages from "@/pages/Dashboard/Admin/Messages/Messages";
 import Dashboard from "@/pages/Dashboard/Dashboard";
+import About from "@/pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/login",

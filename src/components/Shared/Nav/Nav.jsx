@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import logo from "../../../assets/Logo-01.png";
-import { RiHome2Line } from "react-icons/ri";
+import { RiFileInfoLine, RiHome2Line } from "react-icons/ri";
 import { IoGridOutline } from "react-icons/io5";
 import {
   Popover,
@@ -59,6 +59,20 @@ const Nav = () => {
         >
           <IoMailOutline className="text-2xl md:text-base " />
           <span className="hidden md:flex">Contact Us</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+              : "text-base flex items-center gap-1"
+          }
+          to="/about"
+        >
+          <RiFileInfoLine className="text-2xl md:text-base " />
+     
+          <span className="hidden md:flex">About</span>
         </NavLink>
       </li>
     </>
