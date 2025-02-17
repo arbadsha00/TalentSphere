@@ -48,20 +48,7 @@ const Nav = () => {
           </li>
         </>
       )}
-      <li>
-        <NavLink
-          className={({ isActive }) =>
-            isActive
-              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
-              : "text-base flex items-center gap-1"
-          }
-          to="/careers"
-        >
-          <PiOfficeChair className="text-2xl md:text-base " />
-
-          <span className="hidden md:flex">Careers</span>
-        </NavLink>
-      </li>
+      
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -87,6 +74,20 @@ const Nav = () => {
           <RiFileInfoLine className="text-2xl md:text-base " />
 
           <span className="hidden md:flex">About Us</span>
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+              : "text-base flex items-center gap-1"
+          }
+          to="/careers"
+        >
+          <PiOfficeChair className="text-2xl md:text-base " />
+
+          <span className="hidden md:flex">Careers</span>
         </NavLink>
       </li>
     </>

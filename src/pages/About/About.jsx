@@ -15,10 +15,10 @@ const About = () => {
       <p className="md:w-3/4 mx-auto  text-gray-600 text-xs md:text-base text-center my-2">
         Simplifying Employee Management for a More Productive Future
       </p>
-      <div className="flex flex-col gap-6 mt-10 mb-12">
-              <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <FaFlag size={40} className="text-primary-1" />
-                
+      <div className="flex flex-col gap-6 my-10">
+        <div className="bg-white shadow-lg rounded-lg p-6 ">
+          <FaFlag size={40} className="text-primary-1" />
+
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             Our Mission
           </h3>
@@ -28,8 +28,9 @@ const About = () => {
             productivity, and foster a positive work culture.
           </p>
         </div>
-              <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <MdOutlineWork size={40} className="text-primary-1"  />
+        
+        <div className="bg-white shadow-lg rounded-lg p-6 ">
+          <MdOutlineWork size={40} className="text-primary-1" />
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             What We Do
           </h3>
@@ -51,21 +52,30 @@ const About = () => {
               for smarter decision-making.
             </li>
           </ul>
-              </div>
-              <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <BsFillQuestionSquareFill size={40} className="text-primary-1" />
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-6 ">
+          <BsFillQuestionSquareFill size={40} className="text-primary-1" />
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             Why Choose Us?
           </h3>
           <p className="text-gray-600">
-            At <strong>TalentSphere</strong>, we don’t just manage employees—we empower teams to thrive. 
-            Our platform is designed to help businesses create an efficient, engaging, and 
-            productive work environment.
+            At <strong>TalentSphere</strong>, we don’t just manage employees—we
+            empower teams to thrive. Our platform is designed to help businesses
+            create an efficient, engaging, and productive work environment.
           </p>
           <ul className="text-gray-600 list-disc list-inside mt-2">
-            <li><strong>User-Friendly & Scalable:</strong> Built to grow with your business.</li>
-            <li><strong>Secure & Reliable:</strong> Ensuring compliance and data protection.</li>
-            <li><strong>People-First Approach:</strong> Designed to support employees and managers alike.</li>
+            <li>
+              <strong>User-Friendly & Scalable:</strong> Built to grow with your
+              business.
+            </li>
+            <li>
+              <strong>Secure & Reliable:</strong> Ensuring compliance and data
+              protection.
+            </li>
+            <li>
+              <strong>People-First Approach:</strong> Designed to support
+              employees and managers alike.
+            </li>
           </ul>
         </div>
       </div>
