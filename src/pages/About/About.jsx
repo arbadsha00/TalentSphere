@@ -17,7 +17,7 @@ const About = () => {
       </p>
       <div className="flex flex-col gap-6 mt-10 mb-12">
               <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <FaFlag size={40} className="text-secondary-1" />
+              <FaFlag size={40} className="text-primary-1" />
                 
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             Our Mission
@@ -29,7 +29,7 @@ const About = () => {
           </p>
         </div>
               <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <MdOutlineWork size={40} className="text-secondary-1"  />
+              <MdOutlineWork size={40} className="text-primary-1"  />
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             What We Do
           </h3>
@@ -53,7 +53,7 @@ const About = () => {
           </ul>
               </div>
               <div className="bg-white shadow-lg rounded-lg p-6 ">
-              <BsFillQuestionSquareFill size={40} className="text-secondary-1" />
+              <BsFillQuestionSquareFill size={40} className="text-primary-1" />
           <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
             Why Choose Us?
           </h3>

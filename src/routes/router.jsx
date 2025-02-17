@@ -21,6 +21,7 @@ import AllEmployeeList from "@/pages/Dashboard/Admin/AllEmployeeList/AllEmployee
 import Messages from "@/pages/Dashboard/Admin/Messages/Messages";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import About from "@/pages/About/About";
+import Careers from "@/pages/Careers/Careers";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/careers",
+        element: <Careers></Careers>,
       },
       {
         path: "/login",

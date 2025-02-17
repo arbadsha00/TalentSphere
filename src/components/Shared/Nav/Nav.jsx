@@ -12,6 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 import AuthContext from "@/provider/AuthContext";
 import { TbFidgetSpinner } from "react-icons/tb";
 import { IoMailOutline } from "react-icons/io5";
+import { PiOfficeChair } from "react-icons/pi";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const Nav = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -47,7 +48,20 @@ const Nav = () => {
           </li>
         </>
       )}
+      <li>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? " text-primary-1 text-base font-semibold flex items-center gap-1"
+              : "text-base flex items-center gap-1"
+          }
+          to="/careers"
+        >
+          <PiOfficeChair className="text-2xl md:text-base " />
 
+          <span className="hidden md:flex">Careers</span>
+        </NavLink>
+      </li>
       <li>
         <NavLink
           className={({ isActive }) =>
@@ -71,8 +85,8 @@ const Nav = () => {
           to="/about"
         >
           <RiFileInfoLine className="text-2xl md:text-base " />
-     
-          <span className="hidden md:flex">About</span>
+
+          <span className="hidden md:flex">About Us</span>
         </NavLink>
       </li>
     </>
