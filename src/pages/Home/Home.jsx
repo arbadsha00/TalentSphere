@@ -6,6 +6,7 @@ import Spotlight from "./Spotlight/Spotlight";
 import Testimonial from "./Testimonial/Testimonial";
 import FAQs from "./FAQs/FAQs";
 import Pricing from "./Pricing/Pricing";
+import Client from "./Client/Client";
 
 const Home = () => {
   return (
@@ -19,7 +20,9 @@ const Home = () => {
       <Spotlight></Spotlight>
       <Pricing></Pricing>
       <FAQs></FAQs>
+   
       <Blog></Blog>
+      <Client></Client>
     </div>
   );
 };
