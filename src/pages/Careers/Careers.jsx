@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
+import { toast } from "react-toastify";
 
 const Careers = () => {
   return (
@@ -28,7 +29,14 @@ const Careers = () => {
             <li>Develop clean and efficient code</li>
             <li>Participate in code reviews</li>
           </ul>
-          <Button className="mt-4  bg-primary-1">Apply Now</Button>
+          <Button
+            onClick={() => {
+              toast("Feature under development!");
+            }}
+            className="mt-4  bg-primary-1"
+          >
+            Apply Now
+          </Button>
         </div>
 
         <div className="p-6 border rounded-lg shadow-md hover:shadow-lg">
@@ -44,7 +52,9 @@ const Careers = () => {
             <li>Analyze market trends and performance</li>
             <li>Lead digital marketing efforts</li>
           </ul>
-          <Button className="mt-4  bg-primary-1">Apply Now</Button>
+          <Button onClick={() => {
+                  toast("Feature under development!");
+                }}  className="mt-4  bg-primary-1">Apply Now</Button>
         </div>
       </div>
     </div>

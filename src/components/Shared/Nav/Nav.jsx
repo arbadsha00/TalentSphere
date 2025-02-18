@@ -28,7 +28,7 @@ const Nav = () => {
           to="/"
         >
           <RiHome2Line className="text-2xl md:text-base " />{" "}
-          <span className="hidden md:flex">Home</span>
+          <span className="hidden lg:flex">Home</span>
         </NavLink>
       </li>
       {user && (
@@ -43,7 +43,7 @@ const Nav = () => {
               to="/dashboard"
             >
               <IoGridOutline className="text-2xl md:text-base " />{" "}
-              <span className="hidden md:flex">Dashboard</span>
+              <span className="hidden lg:flex">Dashboard</span>
             </NavLink>
           </li>
         </>
@@ -59,7 +59,7 @@ const Nav = () => {
           to="/contact"
         >
           <IoMailOutline className="text-2xl md:text-base " />
-          <span className="hidden md:flex">Contact Us</span>
+          <span className="hidden lg:flex">Contact Us</span>
         </NavLink>
       </li>
       <li>
@@ -73,7 +73,7 @@ const Nav = () => {
         >
           <RiFileInfoLine className="text-2xl md:text-base " />
 
-          <span className="hidden md:flex">About Us</span>
+          <span className="hidden lg:flex">About Us</span>
         </NavLink>
       </li>
       <li>
@@ -87,7 +87,7 @@ const Nav = () => {
         >
           <PiOfficeChair className="text-2xl md:text-base " />
 
-          <span className="hidden md:flex">Careers</span>
+          <span className="hidden lg:flex">Careers</span>
         </NavLink>
       </li>
     </>

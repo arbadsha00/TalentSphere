@@ -9,7 +9,7 @@ const DashboardLayout = () => {
   return (
     <div>
       <Nav></Nav>
-      <section className="relative min-h-screen md:flex max-w-screen-xl mx-auto px-4">
+      <section className="relative min-h-screen md:flex  mx-auto ">
               <div className="md:w-64 mx-auto">
               <Sidebar />
        </div>
@@ -20,7 +20,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </section>
-      <Footer></Footer>
+ 
       <ToastContainer />
     </div>
   );

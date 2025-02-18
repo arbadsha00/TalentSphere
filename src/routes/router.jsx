@@ -22,6 +22,7 @@ import Messages from "@/pages/Dashboard/Admin/Messages/Messages";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import About from "@/pages/About/About";
 import Careers from "@/pages/Careers/Careers";
+import Profile from "@/pages/Dashboard/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
           </PrivateRoute>
         ),
       },

@@ -41,7 +41,7 @@ const Details = () => {
       </section>
       <ChartContainer
         config={chartConfig}
-        className="min-h-[200px] w-full mt-10"
+        className="min-h-[200px] w-full max-w-screen-xl mx-auto mt-10"
       >
         <ResponsiveContainer width="100%" height={200}>
           <BarChart data={formatPayment} maxBarSize={70}>
