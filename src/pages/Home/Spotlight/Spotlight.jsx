@@ -34,7 +34,7 @@ const Spotlight = () => {
         title="Meet the Stars of Our Community"
         subTitle="Highlighting exceptional team members and their success stories."
       ></HomeTitle>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto">
         {spotlight.map((employee, index) => (
           <div key={index} className="text-center ">
             <img
