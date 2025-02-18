@@ -9,6 +9,7 @@ import {
   FaComments,
   FaUserPlus,
 } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 const Service = () => {
   const services = [
     {
@@ -65,13 +66,14 @@ const Service = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white mx-auto flex-shrink-0 shadow-lg rounded-lg p-6 transition transform hover:scale-105 max-w-72"
+              className="bg-white mx-auto flex-shrink-0 shadow-lg rounded-lg p-6 transition transform hover:scale-105 max-w-72 justify-between flex flex-col"
             >
               {service.icon}
               <h3 className="text-xl mt-2 font-semibold text-primary-2 mb-4">
                 {service.title}
               </h3>
               <p className="text-gray-600">{service.description}</p>
+              <Button className="bg-primary-2 mt-2 max-w-fit">Learn More</Button>
             </div>
           ))}
         </div>
