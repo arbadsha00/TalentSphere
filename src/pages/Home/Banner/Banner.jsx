@@ -4,6 +4,12 @@ import hero from "../../../assets/hero.png";
 
 
 const Banner = () => {
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
   return (
     <div className="my-6 bg-banner px-6 pt-6 md:pt-16 pb-16 text-center space-y-6 ">
       <img className="mx-auto w-52  md:w-80" src={hero} alt="" />
@@ -19,7 +25,7 @@ const Banner = () => {
         ensuring a more efficient, productive, and collaborative work
         environment.
       </p>
-      <Button className="md:text-lg bg-primary-1 rounded-full">
+      <Button  onClick={() => scrollToSection("pricing")} className="md:text-lg bg-primary-1 rounded-full">
         Get Started
       </Button>
     </div>

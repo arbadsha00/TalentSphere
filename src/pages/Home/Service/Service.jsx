@@ -10,6 +10,8 @@ import {
   FaUserPlus,
 } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { IoIosArrowForward } from "react-icons/io";
+import { toast } from "react-toastify";
 const Service = () => {
   const services = [
     {
@@ -73,7 +75,9 @@ const Service = () => {
                 {service.title}
               </h3>
               <p className="text-gray-600">{service.description}</p>
-              <Button className="bg-primary-2 mt-2 max-w-fit">Learn More</Button>
+              <Button onClick={() => {
+                  toast("Feature under development!");
+                }} className="bg-primary-2 mt-2 max-w-fit">Learn More  <IoIosArrowForward /></Button>
             </div>
           ))}
         </div>

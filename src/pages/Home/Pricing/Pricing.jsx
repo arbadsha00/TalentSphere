@@ -3,6 +3,7 @@ import priceAnim from "../../../assets/price.json"
 import HomeTitle from '../HomeTitle/HomeTitle';
 import { FaCheckCircle } from "react-icons/fa";
 import { Button } from '@/components/ui/button';
+import { toast } from 'react-toastify';
 const pricingPlans = [
     {
       title: "Free",
@@ -28,7 +29,7 @@ const pricingPlans = [
   ];
 const Pricing = () => {
     return (
-        <div className="mt-10 px-4">
+        <div id="pricing" className="mt-10 px-4">
             <Player
         autoplay
         loop
@@ -64,7 +65,9 @@ const Pricing = () => {
                 </li>
               ))}
             </ul>
-            <Button className={`mt-4 w-full ${plan.highlight ? "bg-primary-1" : "bg-primary-2"}`}>
+            <Button onClick={() => {
+                  toast("Feature under development!");
+                }} className={`mt-4 w-full ${plan.highlight ? "bg-primary-1" : "bg-primary-2"}`}>
               {plan.highlight ? "Try Now" : "Get Started"}
             </Button>
           </div>

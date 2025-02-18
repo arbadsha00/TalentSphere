@@ -9,6 +9,7 @@ import blog5 from "../../../assets/blog5.png";
 import blog6 from "../../../assets/blog6.png";
 import { Button } from "@/components/ui/button";
 import { IoIosArrowForward } from "react-icons/io";
+import { toast } from "react-toastify";
 const Blog = () => {
   const blogPosts = [
     {
@@ -76,7 +77,9 @@ const Blog = () => {
                 {post.title}
               </h3>
               <p className="text-gray-600 mt-2">{post.subtitle}</p>
-              <Button className="bg-primary-1">
+              <Button onClick={() => {
+                  toast("Feature under development!");
+                }} className="bg-primary-2">
                 Read More
                 <IoIosArrowForward />
               </Button>
