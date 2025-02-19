@@ -23,6 +23,7 @@ import Dashboard from "@/pages/Dashboard/Dashboard";
 import About from "@/pages/About/About";
 import Careers from "@/pages/Careers/Careers";
 import Profile from "@/pages/Dashboard/Profile/Profile";
+import Analytics from "@/pages/Dashboard/Analytics/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "analytics",
+        element: (
+          <PrivateRoute>
+           <Analytics></Analytics>
           </PrivateRoute>
         ),
       },
